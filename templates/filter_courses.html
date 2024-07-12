@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta "viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Courses</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f9; }
+        .header, .footer { background-color: #6a1b9a; padding: 10px 20px; color: white; text-align: center; font-size: 24px; }
+        .container { padding-top: 20px; }
+        .btn-primary {
+            color: #fff;
+            background-color: #6a1b9a;
+            border-color: #5a0e7d;
+        }
+        .header img {
+            vertical-align: middle;
+            margin-right: 10px;
+            height: 50px; /* Match the logo size */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="/personal_dashboard">
+            <img src="/static/images/logo.png" alt="Crafting Courses Logo">
+        </a>
+        Crafting Courses Management System - Register Student
+    </div>
+    <div class="container">
+        <h2>Filter Courses</h2>
+        <form method="POST" action="">
+            <div class="form-group">
+                <label for="max_price">Maximum Price:</label>
+                <input type="number" class="form-control" name="max_price" placeholder="Enter maximum price">
+                <button type="submit" class="btn btn-primary mt-3">Filter Courses</button>
+            </div>
+        </form>
+
+        <h3>Register Student to Course</h3>
+        <form method="POST" action="">
+            <div class="form-group">
+                <label for="student_id">Select Student:</label>
+                <select name="student_id" class="form-control">
+                    {% for student in students %}
+                    <option value="{{ student['id'] }}">{{ student['username'] }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="course_id">Select Course:</label>
+                <select name="course_id" class="form-control">
+                    {% for course in courses %}
+                    <option value="{{ course['courseid'] }}">{{ course['coursename'] }} - ${{ course['courseprice'] }} on {{ course['coursedate'].strftime('%Y-%m-%d') }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="payment_method">Payment Method:</label>
+                <select name="payment_method" class="form-control">
+                    <option value="card">Card</option>
+                    <option value="cash">Cash</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Register Student</button>
+        </form>
+    
+        {% if message %}
+        <div class="alert alert-info">{{ message }}</div>
+        {% endif %}
+    </div>
+    <div class="footer">© 2024 Crafting Courses, Inc.</div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Courses</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+        .header, .footer {
+            background-color: #6a1b9a;
+            padding: 10px 20px;
+            color: white;
+            text-align: center;
+            font-size: 24px;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        .header img {
+            vertical-align: middle;
+            margin-right: 10px;
+            height: 50px; /* Match the logo size */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="/student_dashboard">
+            <img src="/static/images/logo.png" alt="Crafting Courses Logo">
+        </a>
+        Crafting Courses Management System - My Courses
+    </div>
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Course Name</th>
+                    <th>Details</th>
+                    <th>Price</th>
+                    <th>Course Date</th>
+                    <th>Registered On</th>
+                    <th>Payment Method</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for course in registered_courses %}
+                <tr>
+                    <td>{{ course['coursename'] }}</td>
+                    <td>{{ course['coursedetails'] }}</td>
+                    <td>${{ course['courseprice'] }}</td>
+                    <td>{{ course['date'] }}</td>
+                    <td>{{ course['purchasedate'] }}</td>
+                    <td>{{ course['paymentmethod'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="footer">© 2024 Crafting Courses, Inc.</div>
+</body>
+</html>

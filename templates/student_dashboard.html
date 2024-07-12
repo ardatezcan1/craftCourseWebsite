@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9; /* Light grey background for the body */
+        }
+        .header, .footer {
+            background-color: #6a1b9a; /* Deep purple */
+            padding: 10px 20px;
+            color: white;
+            text-align: center;
+            font-size: 24px;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        .btn-primary, .btn-info {
+            background-color: #9c27b0; /* Custom purple for buttons */
+            border-color: #7b1fa2; /* Darker purple for border */
+        }
+        .btn-primary:hover {
+            background-color: #7b1fa2; /* Darker purple on hover */
+            border-color: #6a1b9a;
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+        }
+        .alert {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="/student_dashboard">
+            <img src="/static/images/logo.png" alt="Crafting Courses Logo" style="height: 50px;">
+        </a>
+        Crafting Courses Management System - Student Dashboard
+    </div>
+    
+
+    <div class="container">
+        <a href="/my_courses" class="btn btn-info mb-3">View My Courses</a>
+        <a href="/my_profile" class="btn btn-info mb-3">My Profile</a>
+    </div>
+
+    <div class="container">
+        <h1>Available Courses</h1>
+        {% if message %}
+            <div class="alert alert-info">{{ message }}</div>
+        {% endif %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Course Name</th>
+                    <th>Details</th>
+                    <th>Price</th>
+                    <th>Date</th>
+                    <th>Quota</th>
+                    <th>Reservations</th>
+                    <th>Teacher</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for course in courses %}
+                <tr>
+                    <td>{{ course['coursename'] }}</td>
+                    <td>{{ course['coursedetails'] }}</td>
+                    <td>${{ course['courseprice'] }}</td>
+                    <td>{{ course['date'] }}</td>
+                    <td>{{ course['quota'] }}</td>
+                    <td>{{ course['reservations'] }}</td>
+                    <td>{{ course['teachername'] }}</td>
+                    <td>
+                        <form method="post">
+                            <input type="hidden" name="course_id" value="{{ course['courseid'] }}">
+                            <select name="payment_method" class="form-control">
+                                <option value="card">Card</option>
+                                <option value="cash">Cash</option>
+                            </select>
+                            <button type="submit" class="btn btn-primary mt-2">Register</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="footer">© 2024 Crafting Courses, Inc.</div>
+</body>
+</html>

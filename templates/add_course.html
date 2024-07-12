@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Course</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9; /* Light grey background for the body */
+        }
+        .header, .footer {
+            background-color: #6a1b9a; /* Deep purple */
+            padding: 10px 20px;
+            color: white;
+            text-align: center;
+            font-size: 24px;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        .btn-primary {
+            background-color: #9c27b0; /* Custom purple for buttons */
+            border-color: #7b1fa2; /* Darker purple for border */
+        }
+        .btn-primary:hover {
+            background-color: #7b1fa2; /* Darker purple on hover */
+            border-color: #6a1b9a;
+        }
+        .header img {
+            vertical-align: middle;
+            margin-right: 10px;
+            height: 50px; /* Match the logo size */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        
+    </div>
+    <div class="header">
+        <a href="/teacher_dashboard">
+            <img src="/static/images/logo.png" alt="Crafting Courses Logo">
+        </a>
+        Crafting Courses Management System - Add Course
+    </div>
+    <div class="container">
+        <h2>Add a New Course</h2>
+        <form method="POST" action="/add_course">
+            <div class="form-group">
+                <label for="course_name">Course Name:</label>
+                <input type="text" class="form-control" id="course_name" name="course_name" required>
+            </div>
+            <div class="form-group">
+                <label for="course_details">Course Details:</label>
+                <textarea class="form-control" id="course_details" name="course_details" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="price">Price:</label>
+                <input type="number" class="form-control" id="price" name="price" required>
+            </div>
+            <div class="form-group">
+                <label for="course_date">Course Date:</label>
+                <input type="date" class="form-control" id="course_date" name="course_date" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Course</button>
+        </form>
+    </div>
+    <div class="footer">© 2024 Crafting Courses, Inc.</div>
+</body>
+</html>

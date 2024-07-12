@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+        .header, .footer {
+            background-color: #6a1b9a;
+            padding: 10px 20px;
+            color: white;
+            text-align: center;
+            font-size: 24px;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        .header img {
+            vertical-align: middle;
+            margin-right: 10px;
+            height: 50px; /* Match the logo size */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="/student_dashboard">
+            <img src="/static/images/logo.png" alt="Crafting Courses Logo">
+        </a>
+        Crafting Courses Management System - My Profile
+    </div>
+    <div class="container">
+        <h2>Personal Information</h2>
+        <p><strong>Username:</strong> {{ user_info['username'] }}</p>
+        <p><strong>Address:</strong> {{ user_info['address'] }}</p>
+        <p><strong>Phone:</strong> {{ user_info['phone'] }}</p>
+        <p><strong>Home Phone:</strong> {{ user_info['homephone'] }}</p>
+        <p><strong>Email:</strong> {{ user_info['email'] }}</p>
+    </div>
+    <div class="footer">© 2024 Crafting Courses, Inc.</div>
+</body>
+</html>

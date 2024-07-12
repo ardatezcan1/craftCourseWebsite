@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9; /* Light grey background for the body */
+        }
+        .header {
+            background-color: #6a1b9a; /* Deep purple */
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 24px;
+            color: white;
+        }
+        .footer {
+            background-color: #6a1b9a; /* Deep purple */
+            color: white;
+            text-align: center;
+            padding: 12px 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .btn-primary {
+            background-color: #9c27b0; /* Custom purple for buttons */
+            border-color: #7b1fa2; /* Darker purple for border */
+        }
+        .btn-primary:hover {
+            background-color: #7b1fa2; /* Darker purple on hover */
+            border-color: #6a1b9a;
+        }
+        .header img {
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="/static/images/logo.png" alt="Crafting Courses Logo" style="height: 50px;">
+        Crafting Courses Management System
+    </div>
+
+    <div class="container">
+        <a href="/teacher_profile" class="btn btn-primary mb-3">View My Profile</a>
+    </div>
+
+    <div class="container">
+        <h2>Your Courses</h2>
+        <a href="/add_course" class="btn btn-primary">Add New Course</a> <!-- Link to add course page -->
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Course Name</th>
+                    <th>Details</th>
+                    <th>Price</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for course in courses %}
+                <tr>
+                    <td>{{ course['coursename'] }}</td>
+                    <td>{{ course['coursedetails'] }}</td>
+                    <td>${{ course['price'] }}</td>
+                    <td>{{ course['coursedate'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="footer">© 2024 Crafting Courses, Inc.</div>
+</body>
+</html>
