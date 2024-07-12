@@ -9,6 +9,7 @@ This project is developed to facilitate the management of various handicrafts co
 The system assists staff in organizing course programs by providing the following functionalities:
 
 **Handicraft Selection:** Staff can determine which handicrafts will be included in a course. The system helps by listing eligible handicrafts based on the course type and schedule (weekday or weekend).
+
 **Teacher Assignment:** Once the handicrafts and schedule are set, the system assists in selecting an available teacher for each session, ensuring the chosen teachers are available at the selected times.
 **Cost Calculation:** After planning the course content and assigning teachers, the system calculates the total cost of the course.
 **Course Enrollment and Sales**
