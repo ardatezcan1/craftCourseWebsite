@@ -2,8 +2,10 @@
 
 This project is developed to facilitate the management of various handicrafts courses offered by a company. The main goal is to create a system that allows staff to efficiently plan, schedule, and manage courses, teachers, and students.
 
-**Key Features
-Course Planning**
+**Key Features**
+
+**Course Planning**
+
 The system assists staff in organizing course programs by providing the following functionalities:
 
 **Handicraft Selection:** Staff can determine which handicrafts will be included in a course. The system helps by listing eligible handicrafts based on the course type and schedule (weekday or weekend).
