@@ -1,4 +1,5 @@
 **Handicrafts Course Management System**
+
 This project is developed to facilitate the management of various handicrafts courses offered by a company. The main goal is to create a system that allows staff to efficiently plan, schedule, and manage courses, teachers, and students.
 
 **Key Features
